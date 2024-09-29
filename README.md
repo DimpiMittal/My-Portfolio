@@ -16,6 +16,8 @@ Here’s a glimpse of the tools and technologies I’m proficient in:
 - **Tools**: Power BI, SQL, Django
 - **Soft Skills**: Communication, Teamwork, Problem-Solving
 
+### Here you can see my experience, other porjects link and can download my Resume.
+
  ## 🔧 How to Run This Portfolio
 
 To view my portfolio locally, follow these simple steps:
