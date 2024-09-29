@@ -1,0 +1,62 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimpi's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/Home.html">Home</a></li>
+                    <li><a href="/My Intro.html">My Intro</a></li>
+                    <li><a href="/Skills.html">Skills</a></li>
+                    <li><a href="/Projects.html">Projects</a></li>
+                    <li><a href="/Experience.html">Experience</a></li>
+                    <li><a href="/Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main">
+            <div class="contact-form">
+                <form>
+                    <h1>Contact me for work/General Enquiry</h1>
+
+                    <label for="name" class="form-label">Name</label>
+                    <p></p>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                    <p></p>
+
+                    <p></p>
+                    <label for="clientform" class="form-label">Email address</label>
+                    <p></p>
+                    <input type="email" class="form-control" id="clientform" aria-describedby="Email ID">
+                    <p id="Email ID" class="form-text">We'll never share your email with anyone else.</p>
+                    <div class="form-group">
+                        <p></p>
+                        <label for="message" class="form-label">Send Message</label>
+                        <p></p>
+                        <textarea class="form-control" id="message" rows="15" style="width: 300px"></textarea>
+                    </div>
+                    <p></p>
+                    <button type="submit" class="btnforsubmit">Submit</button>
+                </form>
+
+                <div id="popupMessage" class="popup-message">Message submitted successfully!</div>
+        </div>
+            </div>
+         
+        </div>
+    </div>
+
+
+    
+    <!-- Link to my JavaScript file -->
+    <script src="index.js"></script>
+</body>
+</html> 
+
