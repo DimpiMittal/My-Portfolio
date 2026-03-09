@@ -44,6 +44,22 @@ body {
   cursor: none;
 }
 
+
+@media (max-width: 900px){
+
+  body{
+    cursor:auto;
+  }
+
+  #cursor,
+  #cursor-ring{
+    display:none;
+  }
+
+}
+
+
+
 /* ============================================
    CUSTOM CURSOR
 ============================================ */
@@ -136,6 +152,49 @@ nav {
 .nav-links a:hover { color: var(--cyan); }
 .nav-links a:hover::after { width: 100%; }
 
+
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  width:22px;
+  height:2px;
+  background:var(--cyan);
+  display:block;
+}
+
+
+@media (max-width:900px){
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    right:20px;
+    flex-direction:column;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:1.2rem;
+    gap:1rem;
+    display:none;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+}
+
+
+
 /* ============================================
    MAIN WRAPPER
 ============================================ */
@@ -145,6 +204,27 @@ section { position: relative; }
 /* ============================================
    HERO SECTION
 ============================================ */
+
+@media (max-width:600px){
+
+.hero-name{
+  font-size:2.5rem;
+}
+
+.hero-desc{
+  font-size:0.95rem;
+}
+
+.hero-btns{
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+}
+
+
+
+
 #hero {
   min-height: 100vh;
   display: flex;
@@ -391,6 +471,99 @@ section { position: relative; }
   100%{opacity:0;transform:scaleY(1);transform-origin:bottom}
 }
 
+
+.hero-subtitle{
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText{
+  from{
+    text-shadow: 0 0 4px rgba(0,245,255,0.6),
+                 0 0 8px rgba(0,245,255,0.4);
+  }
+  to{
+    text-shadow: 0 0 8px rgba(0,245,255,0.9),
+                 0 0 16px rgba(0,245,255,0.7),
+                 0 0 24px rgba(0,245,255,0.5);
+  }
+}
+
+
+
+
+
+/* HERO ENTRY ANIMATIONS */
+
+@keyframes fadeUp {
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeRight{
+  from{
+    opacity:0;
+    transform:translateX(-40px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+@keyframes fadeLeft{
+  from{
+    opacity:0;
+    transform:translateX(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+
+.hero-tag.show{
+  animation:fadeRight .8s ease forwards;
+}
+
+.hero-name.show{
+  animation:fadeUp .9s ease forwards;
+}
+
+.hero-subtitle.show{
+  animation:fadeUp 1s ease forwards;
+}
+
+.hero-typed-wrap.show{
+  animation:fadeUp 1.1s ease forwards;
+}
+
+.hero-desc.show{
+  animation:fadeUp 1.2s ease forwards;
+}
+
+.hero-btns.show{
+  animation:fadeUp 1.3s ease forwards;
+}
+
+.hero-visual.show{
+  animation:fadeLeft 1.4s ease forwards;
+}
+
 /* ============================================
    SECTION COMMONS
 ============================================ */
@@ -428,6 +601,26 @@ section { position: relative; }
 /* ============================================
    ABOUT
 ============================================ */
+
+@media (max-width:900px){
+
+.about-cards{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+  height:auto;
+}
+
+.about-card{
+  position:relative;
+  width:100%;
+  height:auto;
+  animation:none;
+}
+
+}  
+
+
 #about { background: var(--bg2); }
 .about-grid {
   display: grid;
@@ -633,6 +826,34 @@ section { position: relative; }
 /* ============================================
    PROJECTS — ALTERNATING LEFT / RIGHT
 ============================================ */
+
+
+@media (max-width:600px){
+
+.project-card{
+  padding:1.5rem;
+}
+
+.project-title{
+  font-size:1.1rem;
+}
+
+.project-desc{
+  font-size:0.85rem;
+}
+
+}
+
+
+@media (max-width:1000px){
+
+.achievements-grid{
+  grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
 #projects { background: var(--bg2); }
 
 /* All cards stack in a single column */
@@ -1005,6 +1226,26 @@ section { position: relative; }
    CONTACT
 ============================================ */
 
+
+@media (max-width:600px){
+
+.social-link{
+  font-size:0.8rem;
+  padding:0.9rem 1rem;
+}
+
+}
+
+@media (max-width:480px){
+
+.section-pad{
+  padding:4rem 1.2rem;
+}
+
+}
+
+
+
 #contact {
   background: var(--bg);
 }
@@ -1137,6 +1378,190 @@ transform:translateY(0);
 }
 }
 
+
+/* ============================================
+   SERVICES
+============================================ */
+
+
+@media (max-width:1200px){
+
+.services-grid{
+  grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+.service-card:active,
+.project-card:active,
+.ach-card:active{
+  transform:scale(0.98);
+}
+
+
+
+#services{
+  padding: 120px 0;
+}
+
+.section-header{
+  max-width:600px;
+  margin-bottom:60px;
+}
+
+.section-header h2{
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.section-header p{
+  color:var(--text-muted);
+  line-height:1.7;
+}
+
+.service-card p{
+  transform:translateY(6px);
+  opacity:.85;
+  transition:all .35s ease;
+}
+
+.service-card:hover p{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template-rows:auto auto;
+  gap:2rem;
+  margin-top:3rem;
+}
+
+@media (max-width: 1000px){
+  .services-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+@media (max-width: 600px){
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+
+/* ============================================
+   SERVICE CARD ADVANCED EFFECT
+============================================ */
+
+.service-card{
+  background:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.08);
+  padding:28px;
+  border-radius:16px;
+  transition:all .45s cubic-bezier(.2,.8,.2,1);
+  position:relative;
+  overflow:hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* glow border effect */
+
+/* glow border effect */
+
+.service-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,255,0.6),
+    transparent
+  );
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+/* animated light sweep */
+
+.service-card::after{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,255,0.12),
+    transparent
+  );
+  transform:rotate(25deg);
+  opacity:0;
+  transition:all .6s ease;
+}
+
+/* hover animation */
+
+.service-card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:
+      0 20px 60px rgba(0,255,255,0.12),
+      inset 0 0 0.5px rgba(255,255,255,0.1);
+}
+
+/* activate glow */
+
+.service-card:hover::before{
+  opacity:1;
+}
+
+/* sweep animation */
+
+.service-card:hover::after{
+  opacity:1;
+  transform:translateX(40%) rotate(25deg);
+}
+
+/* title animation */
+
+.service-card h3{
+  margin-bottom:10px;
+  font-size:1.1rem;
+  transition:color .35s ease;
+}
+
+.service-card:hover h3{
+  color:var(--cyan);
+}
+
+/* tech stack text */
+
+.service-card span{
+  font-size:0.75rem;
+  color:var(--cyan);
+  letter-spacing:0.08em;
+}
+
+
+
+
 /* ============================================
    FOOTER
 ============================================ */
@@ -1186,6 +1611,8 @@ footer .footer-right span { color: var(--cyan); }
   footer { flex-direction: column; gap: 0.75rem; text-align: center; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -1201,13 +1628,22 @@ footer .footer-right span { color: var(--cyan); }
 ============================================ -->
 <nav id="navbar">
   <a class="nav-logo" href="#hero">DM<span>//</span>portfolio</a>
+
+  <div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
   <ul class="nav-links">
-    <li><a href="#hero">home</a></li>
-    <li><a href="#about">about</a></li>
-    <li><a href="#stack">stack</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#experience">experience</a></li>
-    <li><a href="#achievements">achievements</a></li>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
@@ -1223,10 +1659,11 @@ footer .footer-right span { color: var(--cyan); }
 
   <div class="hero-inner">
     <div class="hero-left">
-      <p class="hero-tag" id="h-tag">Available for opportunities</p>
+      <p class="hero-tag" id="h-tag">Open to Opportunities & Freelance Work</p>
       <h1 class="hero-name" id="h-name">
         Dimpi<br><span class="accent">Mittal</span>
       </h1>
+      <p class="hero-subtitle">Upcoming Deloitte Intern</p>
       <div class="hero-typed-wrap" id="h-typed">
         <span id="typed-el"></span><span class="typed-cursor-custom"></span>
       </div>
@@ -1503,7 +1940,7 @@ footer .footer-right span { color: var(--cyan); }
           </div>
 
           <div class="project-links">
-            <a href="https://github.com/DimpiMittal/AI_Scribbler" target="_blank" class="proj-link">
+            <a href="https://github.com/DimpiMittal/AI_Scribbler" target="_blank" rel="noopener noreferrer" class="proj-link">
 
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
@@ -1564,7 +2001,7 @@ footer .footer-right span { color: var(--cyan); }
         </div>
 
         <div class="project-links">
-          <a href="https://github.com/DimpiMittal/Paylytics" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://github.com/DimpiMittal/Paylytics" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub</a>
         </div>
 
       </div>
@@ -1593,7 +2030,7 @@ footer .footer-right span { color: var(--cyan); }
   </div>
 
   <div class="project-links">
-    <a href="https://github.com/DimpiMittal/SwiftMart" target="_blank" class="proj-link">GitHub</a>
+    <a href="https://github.com/DimpiMittal/SwiftMart" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub</a>
   </div>
 
 </div>
@@ -1619,7 +2056,7 @@ footer .footer-right span { color: var(--cyan); }
         </div>
 
         <div class="project-links">
-          <a href="https://github.com/DimpiMittal/HR-Dash" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://github.com/DimpiMittal/HR-Dash" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub</a>
         </div>
 
       </div>
@@ -1646,7 +2083,7 @@ footer .footer-right span { color: var(--cyan); }
         </div>
 
         <div class="project-links">
-          <a href="https://github.com/DimpiMittal/Nutritrack" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://github.com/DimpiMittal/Nutritrack" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub</a>
         </div>
 
       </div>
@@ -1673,7 +2110,7 @@ footer .footer-right span { color: var(--cyan); }
         </div>
 
         <div class="project-links">
-          <a href="https://github.com/DimpiMittal/codsoft-project" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://github.com/DimpiMittal/codsoft-project" target="_blank" rel="noopener noreferrer" class="proj-link">GitHub</a>
         </div>
 
       </div>
@@ -1822,12 +2259,78 @@ footer .footer-right span { color: var(--cyan); }
   </div>
 </section>
 
+
+
+<!-- ============================================
+     SERVICES
+============================================ -->
+<section id="services" class="section-pad">
+
+  <div class="section-inner">
+
+    <p class="section-label reveal">06. services</p>
+    <h2 class="section-title reveal">Freelance<br><span class="grad">Services</span></h2>
+
+    <p class="contact-info-text reveal" style="max-width:700px;margin-top:1rem;">
+      I help businesses and individuals build modern web applications,
+      intelligent AI systems, and data-driven dashboards that transform
+      ideas into scalable products.
+    </p>
+
+    <div class="services-grid" style="margin-top:3rem">
+
+      <div class="service-card reveal">
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites and full-stack applications built with scalable architecture.</p>
+        <span>HTML • CSS • Tailwind CSS • JavaScript • Python • Flask • Django • REST APIs • Responsive UI</span>
+        
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Python Backend</h3>
+        <p>Robust backend systems, REST APIs, and automation tools built with Python.</p>
+        <span>Python • Django • Flask • FastAPI • REST APIs • API Integration • Automation • PostgreSQL • Mysql • Git</span>
+      </div>
+
+      <div class="service-card reveal">
+        <h3>Data Analytics</h3>
+        <p>Transforming raw datasets into actionable insights using analytics, machine learning, and interactive dashboards.</p>
+        <span>Python • Pandas • NumPy • Scikit-learn • SQL • Power BI • Tableau • Matplotlib • Seaborn • Streamlit</span>
+      </div>
+
+      <div class="service-card reveal">
+  <h3>Data Dashboards</h3>
+  <p>Interactive and real-time dashboards that help businesses track KPIs, analyze performance, and make data-driven decisions.</p>
+  <span>Power BI • Tableau • Plotly • Dash • Streamlit • SQL • Data Visualization</span>
+</div>
+
+      <div class="service-card reveal">
+  <h3>AI Chatbots</h3>
+  <p>Intelligent chatbots that automate customer support, handle queries, and integrate with platforms like Telegram and websites.</p>
+  <span>Python • NLP • OpenAI API • Telegram Bots • Chatbot Development • API Integration</span>
+</div>
+
+      <div class="service-card reveal">
+  <h3>AI Automation</h3>
+  <p>AI-powered automation systems that streamline workflows, reduce manual work, and improve productivity.</p>
+  <span>Python • APIs • Workflow Automation • LLM Integration • API Automation • Task Automation</span>
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
 <!-- ============================================
      CONTACT
 ============================================ -->
 <section id="contact" class="section-pad">
   <div class="section-inner">
-    <p class="section-label reveal">06. contact</p>
+    <p class="section-label reveal">07. contact</p>
     <h2 class="section-title reveal">Let's Connect<br><span class="grad">Together</span></h2>
 
     <div style="margin-top:3rem; max-width:700px;" class="reveal">
@@ -2038,6 +2541,39 @@ function copyEmail() {
     text.innerText = "Email";
   }, 2000); // returns back after 2 seconds
 }
+
+
+
+
+window.addEventListener("load", () => {
+
+document.getElementById("h-tag").classList.add("show");
+
+setTimeout(()=>{
+document.getElementById("h-name").classList.add("show");
+},200);
+
+setTimeout(()=>{
+document.querySelector(".hero-subtitle").classList.add("show");
+},400);
+
+setTimeout(()=>{
+document.getElementById("h-typed").classList.add("show");
+},600);
+
+setTimeout(()=>{
+document.getElementById("h-desc").classList.add("show");
+},800);
+
+setTimeout(()=>{
+document.getElementById("h-btns").classList.add("show");
+},1000);
+
+setTimeout(()=>{
+document.getElementById("h-visual").classList.add("show");
+},1200);
+
+});
 
 
 
