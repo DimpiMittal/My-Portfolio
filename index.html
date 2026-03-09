@@ -2393,6 +2393,9 @@ footer .footer-right span { color: var(--cyan); }
 <!-- ============================================
      JAVASCRIPT
 ============================================ -->
+
+
+
 <script>
 // ============================================
 // CUSTOM CURSOR
@@ -2490,6 +2493,29 @@ window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
   nav.style.padding = window.scrollY > 60 ? '0.75rem 3rem' : '1.25rem 3rem';
 });
+
+
+
+// ============================================
+// MOBILE MENU TOGGLE
+// ============================================
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-links");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
+
+// Close menu when clicking a link (better UX)
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+});
+
+
+
+
 
 // ============================================
 // TIMELINE SCROLL-IN ANIMATION
