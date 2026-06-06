@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -1048,7 +1048,7 @@ section { position: relative; }
 .timeline {
   position: relative;
   padding-left: 3rem;
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -1061,9 +1061,9 @@ section { position: relative; }
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    var(--cyan) 10%,
-    var(--violet2) 50%,
-    var(--cyan) 90%,
+    rgba(37,99,235,0.15) 8%,
+    rgba(37,99,235,0.45) 50%,
+    rgba(37,99,235,0.15) 92%,
     transparent 100%
   );
   opacity: 0.5;
@@ -1071,14 +1071,14 @@ section { position: relative; }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.5rem;
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .timeline-item.in-view {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 .timeline-item:last-child { margin-bottom: 0; }
 
@@ -1087,30 +1087,25 @@ section { position: relative; }
   content: '';
   position: absolute;
   left: -3rem;
-  top: 8px;
+  top: 1.8rem;
   width: 14px; height: 14px;
   border-radius: 50%;
-  background: var(--bg);
+  background: var(--surface);
   border: 2px solid var(--cyan);
-  box-shadow: 0 0 0 4px rgba(0,245,255,0.1), 0 0 20px rgba(0,245,255,0.5);
-  transition: box-shadow 0.4s, background 0.4s;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.08), 0 0 18px rgba(37,99,235,0.12);
+  transition: box-shadow 0.3s, background 0.3s;
   z-index: 1;
 }
 .timeline-item.in-view::before {
   background: var(--cyan);
-  box-shadow: 0 0 0 6px rgba(0,245,255,0.15), 0 0 30px rgba(0,245,255,0.7);
-  animation: pulse-dot 2.5s ease infinite;
-}
-@keyframes pulse-dot {
-  0%,100% { box-shadow: 0 0 0 6px rgba(0,245,255,0.15), 0 0 30px rgba(0,245,255,0.6); }
-  50%      { box-shadow: 0 0 0 10px rgba(0,245,255,0.05), 0 0 50px rgba(0,245,255,0.3); }
+  box-shadow: 0 0 0 6px rgba(37,99,235,0.12), 0 0 22px rgba(37,99,235,0.16);
 }
 
 /* Header row */
 .timeline-header {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 1rem;
   flex-wrap: wrap;
 }
@@ -1120,9 +1115,9 @@ section { position: relative; }
   color: var(--cyan);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  background: rgba(0,245,255,0.07);
-  border: 1px solid rgba(0,245,255,0.2);
-  border-radius: 4px;
+  background: rgba(37,99,235,0.06);
+  border: 1px solid rgba(37,99,235,0.14);
+  border-radius: 999px;
   padding: 0.25rem 0.7rem;
   white-space: nowrap;
   margin-top: 0.3rem;
@@ -1130,13 +1125,13 @@ section { position: relative; }
 .timeline-meta { flex: 1; }
 .timeline-role {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;
 }
 .timeline-company {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
   margin-top: 0.25rem;
 }
@@ -1145,33 +1140,35 @@ section { position: relative; }
 .timeline-body {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 16px;
+  padding: 1.75rem;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.4s, box-shadow 0.4s;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 12px 28px rgba(15,23,42,0.04);
 }
 .timeline-body::before {
   content: '';
   position: absolute;
   top: 0; left: 0; bottom: 0;
   width: 3px;
-  background: linear-gradient(to bottom, var(--cyan), var(--violet2));
+  background: linear-gradient(to bottom, rgba(37,99,235,0.95), rgba(37,99,235,0.45));
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.3s;
 }
 .timeline-item.in-view .timeline-body {
-  border-color: rgba(0,245,255,0.2);
+  border-color: rgba(37,99,235,0.14);
 }
 .timeline-item.in-view .timeline-body::before { opacity: 1; }
 .timeline-item:hover .timeline-body {
-  box-shadow: 0 8px 30px rgba(0,245,255,0.08);
-  border-color: rgba(0,245,255,0.35);
+  box-shadow: 0 16px 36px rgba(15,23,42,0.08);
+  border-color: rgba(37,99,235,0.22);
+  transform: translateY(-4px);
 }
 
-.timeline-points { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.timeline-points { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
 .timeline-points li {
-  font-size: 0.88rem;
+  font-size: 0.93rem;
   color: var(--text-dim);
   line-height: 1.7;
   padding-left: 1.4rem;
@@ -1188,6 +1185,26 @@ section { position: relative; }
 }
 .timeline-item:hover .timeline-points li { color: var(--text); }
 .timeline-item:hover .timeline-points li::before { opacity: 1; }
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.timeline-skill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--cyan-dim);
+  background: rgba(37,99,235,0.06);
+  border: 1px solid rgba(37,99,235,0.12);
+}
 
 /* ============================================
    ACHIEVEMENTS
@@ -1691,7 +1708,6 @@ footer .footer-right span { color: var(--cyan); }
       <h1 class="hero-name" id="h-name">
         Dimpi<br><span class="accent">Mittal</span>
       </h1>
-      <p class="hero-subtitle">Upcoming Deloitte Intern</p>
       <div class="hero-typed-wrap" id="h-typed">
         <span id="typed-el"></span><span class="typed-cursor-custom"></span>
       </div>
@@ -1832,29 +1848,23 @@ footer .footer-right span { color: var(--cyan); }
         <div class="marquee-outer">
           <div class="marquee-track rtl">
             <span class="skill-chip"><span class="dot"></span>scikit-learn</span>
-            <span class="skill-chip"><span class="dot"></span>NumPy</span>
-            <span class="skill-chip"><span class="dot"></span>Pandas</span>
-            <span class="skill-chip"><span class="dot"></span>Matplotlib</span>
-            <span class="skill-chip"><span class="dot"></span>Seaborn</span>
+            <span class="skill-chip"><span class="dot"></span>Python Libraries</span>
+            <span class="skill-chip"><span class="dot"></span>Speech AI(ASR)</span>
             <span class="skill-chip"><span class="dot"></span>Hugging Face</span>
             <span class="skill-chip"><span class="dot"></span>LLM & RAG</span>
             <span class="skill-chip"><span class="dot"></span>OpenCV</span>
             <span class="skill-chip"><span class="dot"></span>NLP</span>
             <span class="skill-chip"><span class="dot"></span>BeautifulSoup</span>
             <span class="skill-chip"><span class="dot"></span>Power BI</span>
-            <span class="skill-chip"><span class="dot"></span>Tableau</span>
             <span class="skill-chip"><span class="dot"></span>scikit-learn</span>
-            <span class="skill-chip"><span class="dot"></span>NumPy</span>
-            <span class="skill-chip"><span class="dot"></span>Pandas</span>
-            <span class="skill-chip"><span class="dot"></span>Matplotlib</span>
-            <span class="skill-chip"><span class="dot"></span>Seaborn</span>
+            <span class="skill-chip"><span class="dot"></span>Python Libraries</span>
+            <span class="skill-chip"><span class="dot"></span>Speeck AI(ASR)</span>
             <span class="skill-chip"><span class="dot"></span>Hugging Face</span>
             <span class="skill-chip"><span class="dot"></span>LLM & RAG</span>
             <span class="skill-chip"><span class="dot"></span>OpenCV</span>
             <span class="skill-chip"><span class="dot"></span>NLP</span>
             <span class="skill-chip"><span class="dot"></span>BeautifulSoup</span>
             <span class="skill-chip"><span class="dot"></span>Power BI</span>
-            <span class="skill-chip"><span class="dot"></span>Tableau</span>
           </div>
         </div>
       </div>
@@ -1867,7 +1877,7 @@ footer .footer-right span { color: var(--cyan); }
             <span class="skill-chip"><span class="dot"></span>Django</span>
             <span class="skill-chip"><span class="dot"></span>Django REST Framework</span>
             <span class="skill-chip"><span class="dot"></span>Flask</span>
-            <span class="skill-chip"><span class="dot"></span>Streamlit</span>
+            <span class="skill-chip"><span class="dot"></span>PostgreSQL</span>
             <span class="skill-chip"><span class="dot"></span>JWT / OAuth2</span>
             <span class="skill-chip"><span class="dot"></span>SQLite</span>
             <span class="skill-chip"><span class="dot"></span>REST APIs</span>
@@ -1875,7 +1885,7 @@ footer .footer-right span { color: var(--cyan); }
             <span class="skill-chip"><span class="dot"></span>Django</span>
             <span class="skill-chip"><span class="dot"></span>Django REST Framework</span>
             <span class="skill-chip"><span class="dot"></span>Flask</span>
-            <span class="skill-chip"><span class="dot"></span>Streamlit</span>
+            <span class="skill-chip"><span class="dot"></span>PostgreSQL</span>
             <span class="skill-chip"><span class="dot"></span>JWT / OAuth2</span>
             <span class="skill-chip"><span class="dot"></span>SQLite</span>
             <span class="skill-chip"><span class="dot"></span>REST APIs</span>
@@ -1883,7 +1893,7 @@ footer .footer-right span { color: var(--cyan); }
             <span class="skill-chip"><span class="dot"></span>Django</span>
             <span class="skill-chip"><span class="dot"></span>Django REST Framework</span>
             <span class="skill-chip"><span class="dot"></span>Flask</span>
-            <span class="skill-chip"><span class="dot"></span>Streamlit</span>
+            <span class="skill-chip"><span class="dot"></span>PostgreSQL</span>
             <span class="skill-chip"><span class="dot"></span>JWT / OAuth2</span>
             <span class="skill-chip"><span class="dot"></span>SQLite</span>
             <span class="skill-chip"><span class="dot"></span>REST APIs</span>
@@ -1902,22 +1912,49 @@ footer .footer-right span { color: var(--cyan); }
             <span class="skill-chip"><span class="dot"></span>OOPs</span>
             <span class="skill-chip"><span class="dot"></span>DBMS</span>
             <span class="skill-chip"><span class="dot"></span>DSA</span>
-            <span class="skill-chip"><span class="dot"></span>Deployment</span>
             <span class="skill-chip"><span class="dot"></span>Git & GitHub</span>
             <span class="skill-chip"><span class="dot"></span>Render</span>
             <span class="skill-chip"><span class="dot"></span>OOPs</span>
             <span class="skill-chip"><span class="dot"></span>DBMS</span>
             <span class="skill-chip"><span class="dot"></span>DSA</span>
-            <span class="skill-chip"><span class="dot"></span>Deployment</span>
             <span class="skill-chip"><span class="dot"></span>Git & GitHub</span>
             <span class="skill-chip"><span class="dot"></span>Render</span>
             <span class="skill-chip"><span class="dot"></span>OOPs</span>
             <span class="skill-chip"><span class="dot"></span>DBMS</span>
             <span class="skill-chip"><span class="dot"></span>DSA</span>
-            <span class="skill-chip"><span class="dot"></span>Deployment</span>
           </div>
         </div>
       </div>
+
+      <!-- ROW 5: Cloud & Deployment  -->
+<div class="stack-row-wrap reveal">
+  <p class="stack-cat-title">Cloud & Deployment</p>
+
+  <div class="marquee-outer">
+    <div class="marquee-track ltr">
+
+      <span class="skill-chip"><span class="dot"></span>Google Cloud Platform (GCP)</span>
+      <span class="skill-chip"><span class="dot"></span>VM Instances (Compute Engine)</span>
+      <span class="skill-chip"><span class="dot"></span>Docker</span>
+      <span class="skill-chip"><span class="dot"></span>Linux Server (CLI)</span>
+      <span class="skill-chip"><span class="dot"></span>Application Deployment</span>
+      <span class="skill-chip"><span class="dot"></span>Hosting & Production Setup</span>
+      <span class="skill-chip"><span class="dot"></span>Environment Configuration</span>
+      <span class="skill-chip"><span class="dot"></span>Basic CI/CD</span>
+
+      <!-- repeat for smooth infinite scroll -->
+      <span class="skill-chip"><span class="dot"></span>Google Cloud Platform (GCP)</span>
+      <span class="skill-chip"><span class="dot"></span>VM Instances (Compute Engine)</span>
+      <span class="skill-chip"><span class="dot"></span>Docker</span>
+      <span class="skill-chip"><span class="dot"></span>Linux Server (CLI)</span>
+      <span class="skill-chip"><span class="dot"></span>Application Deployment</span>
+      <span class="skill-chip"><span class="dot"></span>Hosting & Production Setup</span>
+      <span class="skill-chip"><span class="dot"></span>Environment Configuration</span>
+      <span class="skill-chip"><span class="dot"></span>Basic CI/CD</span>
+
+    </div>
+  </div>
+</div>
 
     </div>
   </div>
@@ -2154,78 +2191,119 @@ footer .footer-right span { color: var(--cyan); }
 
     <div class="timeline" style="margin-top:4rem">
 
-      <!-- QwikTrace -->
+      
+
       <div class="timeline-item">
         <div class="timeline-header">
-          <div class="timeline-date">Feb 2026 — Present</div>
+          <div class="timeline-date">Mar 2026 | Jun 2026</div>
           <div class="timeline-meta">
-            <div class="timeline-role">Intern</div>
-            <div class="timeline-company">QwikTrace · Jaipur (Hybrid)</div>
+            <div class="timeline-role">AI/ML Engineer | Voice & LLM Systems</div>
+            <div class="timeline-company">SolAI AB | Freelance | Stockholm, Sweden | Remote</div>
           </div>
         </div>
-
         <div class="timeline-body">
           <ul class="timeline-points">
-            <li>Developing <strong style="color:var(--cyan)">AI-powered Telegram bots</strong> to automate communication and workflow management.</li>
-            <li>Building automation tools and AI-driven web solutions for business operations.</li>
-            <li>Working on real-world client projects to solve business problems using technology.</li>
-            <li>Supporting development of <strong style="color:var(--cyan)">CRM systems</strong> to improve customer management and operational efficiency.</li>
-            <li>Collaborating with teams to design automation systems and intelligent digital solutions.</li>
-            <li>Gaining exposure to networking fundamentals and IT infrastructure.</li>
-          </ul>
+  <li>Built real-time Voice AI systems enabling AI-powered phone calls using LLMs, RAG pipelines, and speech-to-text APIs.</li>
+
+  <li>Developed conversational voice agents with wake-word detection, VAD (Voice Activity Detection), and low-latency streaming via WebSockets.</li>
+
+  <li>Integrated AI voice systems with APIs like OpenAI and ElevenLabs/Simli avatar for real-time spoken interactions.</li>
+
+  <li>Designed and optimized end-to-end AI pipelines for audio + text processing, including preprocessing, embedding generation, and retrieval systems.</li>
+
+  <li>Built applied AI products including a carbon footprint analysis system and a mobile-based product intelligence app for extracting and analyzing product data.</li>
+
+  <li>Worked on deploying scalable AI services with focus on real-time performance, reliability, and production readiness.</li>
+</ul>
+          <div class="timeline-skills">
+            <span class="timeline-skill">LLM & RAG</span>
+            <span class="timeline-skill">Python</span>
+            <span class="timeline-skill">AI/ML</span>
+            <span class="timeline-skill">Speech AI</span>
+            <span class="timeline-skill">Simili Avatar</span>
+            <span class="timeline-skill">Deployment</span>
+          </div>
         </div>
       </div>
 
-
-      <!-- Celebal Technologies -->
       <div class="timeline-item">
         <div class="timeline-header">
-          <div class="timeline-date">May 2025 — Jul 2025</div>
+          <div class="timeline-date">Mar 2026 | Mar 2026</div>
           <div class="timeline-meta">
-            <div class="timeline-role">Data Science Intern</div>
-            <div class="timeline-company">Celebal Technologies · Remote</div>
+            <div class="timeline-role">Intern</div>
+            <div class="timeline-company">QwikTrace | Internship | Jaipur, Rajasthan, India | Hybrid</div>
           </div>
         </div>
+        <div class="timeline-body">
+          <ul class="timeline-points">
+            <li>Developed AI-powered Telegram bots for workflow automation.</li>
+            <li>Built AI-driven web solutions for business automation.</li>
+            <li>Worked on real-world client projects solving business problems.</li>
+            <li>Supported CRM system development for customer management improvement.</li>
+            <li>Gained exposure to networking fundamentals and IT infrastructure.</li>
+            <li>Collaborated with teams to design automation systems and intelligent solutions.</li>
+          </ul>
+          <div class="timeline-skills">
+            <span class="timeline-skill">Telegram Bots</span>
+            <span class="timeline-skill">Automation</span>
+            <span class="timeline-skill">AI Systems</span>
+          </div>
+        </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-date">May 2025 | Jul 2025</div>
+          <div class="timeline-meta">
+            <div class="timeline-role">Data Science Intern</div>
+            <div class="timeline-company">Celebal Technologies | Remote</div>
+          </div>
+        </div>
         <div class="timeline-body">
           <ul class="timeline-points">
             <li>Worked on machine learning pipelines using Python and scikit-learn.</li>
             <li>Performed data preprocessing and feature engineering using NumPy and Pandas.</li>
-            <li>Built ML models including SVM and Random Forest for predictive analysis.</li>
+            <li>Built SVM and Random Forest models for predictive analysis.</li>
             <li>Implemented data visualization and analysis techniques for insights.</li>
             <li>Collaborated with remote teams using Git and modern development workflows.</li>
           </ul>
+          <div class="timeline-skills">
+            <span class="timeline-skill">Python</span>
+            <span class="timeline-skill">scikit-learn</span>
+            <span class="timeline-skill">Pandas</span>
+          </div>
         </div>
       </div>
 
-
-      <!-- B2World -->
       <div class="timeline-item">
         <div class="timeline-header">
-          <div class="timeline-date">Jan 2025 — Apr 2025</div>
+          <div class="timeline-date">Jan 2025 | Apr 2025</div>
           <div class="timeline-meta">
             <div class="timeline-role">Full Stack Developer Intern</div>
-            <div class="timeline-company">B2World Pvt. Ltd. · Remote</div>
+            <div class="timeline-company">B2World Pvt. Ltd. | Remote</div>
           </div>
         </div>
-
         <div class="timeline-body">
           <ul class="timeline-points">
-            <li>Improved backend performance by <strong style="color:var(--cyan)">40%</strong> through Django ORM query optimization.</li>
-            <li>Developed secure REST APIs using Django REST Framework.</li>
-            <li>Implemented JWT and OAuth2 authentication for secure API access.</li>
-            <li>Integrated frontend and backend systems ensuring smooth user interactions.</li>
-            <li>Worked in Agile teams using Git and GitHub for collaboration.</li>
+            <li>Improved backend performance by 40% through Django ORM optimization.</li>
+            <li>Built REST APIs using Django REST Framework.</li>
+            <li>Implemented JWT and OAuth2 authentication.</li>
+            <li>Integrated frontend and backend systems.</li>
+            <li>Worked in Agile teams using Git and GitHub.</li>
           </ul>
+          <div class="timeline-skills">
+            <span class="timeline-skill">Django</span>
+            <span class="timeline-skill">REST APIs</span>
+            <span class="timeline-skill">OAuth2</span>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
 <!-- ============================================
-     ACHIEVEMENTS
+   ACHIEVEMENTS
 ============================================ -->
 <section id="achievements" class="section-pad">
   <div class="section-inner">
@@ -2274,10 +2352,10 @@ footer .footer-right span { color: var(--cyan); }
 
       <div class="ach-card reveal">
         <div class="ach-icon">✍️</div>
-        <div class="ach-num">Writing</div>
-        <div class="ach-title">Substack Author</div>
-        <div class="ach-sub">Publishing insights and notes on AI, data, and technology</div>
-        <a href="https://substack.com/@dimpiainsights/notes" target="_blank" class="ach-link">Read Notes →</a>
+        <div class="ach-num">Medium</div>
+        <div class="ach-title">Writing</div>
+        <div class="ach-sub">Likes to write about modern life, ambition, and everyday psychology.</div>
+        <a href="https://medium.com/@dimpymittal05" target="_blank" class="ach-link">Read Notes →</a>
       </div>
     </div>
   </div>
@@ -2296,49 +2374,34 @@ footer .footer-right span { color: var(--cyan); }
     <h2 class="section-title reveal">Freelance<br><span class="grad">Services</span></h2>
 
     <p class="contact-info-text reveal" style="max-width:700px;margin-top:1rem;">
-      I help businesses and individuals build modern web applications,
-      intelligent AI systems, and data-driven dashboards that transform
-      ideas into scalable products.
+      I build full-stack applications, AI-powered tools, and data-driven systems that help businesses automate workflows and make smarter decisions.
     </p>
 
     <div class="services-grid" style="margin-top:3rem">
 
       <div class="service-card reveal">
-        <h3>Web Development</h3>
-        <p>Modern, responsive websites and full-stack applications built with scalable architecture.</p>
-        <span>HTML • CSS • Tailwind CSS • JavaScript • Python • Flask • Django • REST APIs • Responsive UI</span>
-        
+        <h3>Full-Stack Web Development</h3>
+        <p>End-to-end web applications with responsive interfaces, secure logic, and scalable architecture.</p>
+        <span>HTML • CSS • JavaScript • Python • Django • Flask • REST APIs</span>
       </div>
 
       <div class="service-card reveal">
-        <h3>Python Backend</h3>
-        <p>Robust backend systems, REST APIs, and automation tools built with Python.</p>
-        <span>Python • Django • Flask • FastAPI • REST APIs • API Integration • Automation • PostgreSQL • Mysql • Git</span>
+        <h3>Backend & API Systems</h3>
+        <p>Reliable backend services, integrations, and data flows built for performance and maintainability.</p>
+        <span>Python • Django • Flask • FastAPI • PostgreSQL • API Integration</span>
       </div>
 
       <div class="service-card reveal">
-        <h3>Data Analytics</h3>
-        <p>Transforming raw datasets into actionable insights using analytics, machine learning, and interactive dashboards.</p>
-        <span>Python • Pandas • NumPy • Scikit-learn • SQL • Power BI • Tableau • Matplotlib • Seaborn • Streamlit</span>
+        <h3>Data Analytics & Dashboards</h3>
+        <p>Turn raw data into clear insights, KPI tracking, and decision-ready dashboards.</p>
+        <span>Python • Pandas • SQL • Power BI • Tableau • Streamlit</span>
       </div>
 
       <div class="service-card reveal">
-  <h3>Data Dashboards</h3>
-  <p>Interactive and real-time dashboards that help businesses track KPIs, analyze performance, and make data-driven decisions.</p>
-  <span>Power BI • Tableau • Plotly • Dash • Streamlit • SQL • Data Visualization</span>
-</div>
-
-      <div class="service-card reveal">
-  <h3>AI Chatbots</h3>
-  <p>Intelligent chatbots that automate customer support, handle queries, and integrate with platforms like Telegram and websites.</p>
-  <span>Python • NLP • OpenAI API • Telegram Bots • Chatbot Development • API Integration</span>
-</div>
-
-      <div class="service-card reveal">
-  <h3>AI Automation</h3>
-  <p>AI-powered automation systems that streamline workflows, reduce manual work, and improve productivity.</p>
-  <span>Python • APIs • Workflow Automation • LLM Integration • API Automation • Task Automation</span>
-</div>
+        <h3>AI & Automation Solutions</h3>
+        <p>AI-powered tools that streamline repetitive work, improve response time, and support smarter operations.</p>
+        <span>Python • LLMs • NLP • OpenAI API • Telegram Bots • Workflow Automation</span>
+      </div>
 
     </div>
 
@@ -2604,24 +2667,20 @@ document.getElementById("h-name").classList.add("show");
 },200);
 
 setTimeout(()=>{
-document.querySelector(".hero-subtitle").classList.add("show");
+document.getElementById("h-typed").classList.add("show");
 },400);
 
 setTimeout(()=>{
-document.getElementById("h-typed").classList.add("show");
+document.getElementById("h-desc").classList.add("show");
 },600);
 
 setTimeout(()=>{
-document.getElementById("h-desc").classList.add("show");
+document.getElementById("h-btns").classList.add("show");
 },800);
 
 setTimeout(()=>{
-document.getElementById("h-btns").classList.add("show");
-},1000);
-
-setTimeout(()=>{
 document.getElementById("h-visual").classList.add("show");
-},1200);
+},1000);
 
 });
 
@@ -2631,3 +2690,7 @@ document.getElementById("h-visual").classList.add("show");
 </script>
 </body>
 </html>
+
+
+
+
